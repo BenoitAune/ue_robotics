@@ -73,7 +73,7 @@ def modulo180(angle) :
 
     return angle
 
-# Put all the legs to the initial position 
+# Put all the legs to the initial position .
 def posBase():
 
 	for i in range (1,7):
