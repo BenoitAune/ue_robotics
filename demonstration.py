@@ -44,7 +44,7 @@ def computeIK(x, y, z, l1=constL1, l2=constL2,l3=constL3) :
     # theta1 is simply the angle of the leg in the X/Y plane. We have the first angle we wanted.
     theta1 = math.atan2(y, x)
 
-    # Distance between the second motor and the projection of the end of the leg on the X/Y plane
+    # Distance between the second motor and the projection of the end of the leg on the X/Y plane.
     xp = math.sqrt(x*x+y*y)-l1
     if (xp < 0) :
 	print("Destination point too close")
