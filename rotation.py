@@ -290,11 +290,16 @@ def moveCenter(x,y,z,sleep):
 # Rotating the robot to an arbitrary angle (odometry)   
 def rotation(angle) :
 	
-	#ne marche que pour les angles positifs :/
+	if (angle<0):
+		sens = -1
+		angle = -angle
+	else:
+		sens =1
+	
 	angleRad=math.radians(angle)
 
 	if (angleRad<(numpy.pi/6)):
-		moveRotation(angleRad) # Rotate the center 
+		moveRotation(sens*angleRad) # Rotate the center 
 		# Moving all the legs one by one to the initial position 		
 		time.sleep(0.3)
 		moveLeg(1,0,0,60)
@@ -328,7 +333,7 @@ def rotation(angle) :
 		reste = angleRad % (numpy.pi/6);
 
 		for i in range(int(nbrRotaInt)):
-			moveRotation(numpy.pi/6)
+			moveRotation(sens*numpy.pi/6)
 			time.sleep(0.3)
 			moveLeg(1,0,0,60)
 			time.sleep(0.1)
@@ -356,7 +361,7 @@ def rotation(angle) :
 			time.sleep(0.3)
 
 		if ( reste > (numpy.pi/300) ):
-			moveRotation(reste)
+			moveRotation(sens*reste)
 			time.sleep(0.3)
 			moveLeg(1,0,0,60)
 			time.sleep(0.1)
